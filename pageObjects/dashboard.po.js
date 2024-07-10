@@ -29,4 +29,5 @@ exports.DashboardPage = class DashboardPage {
   async removeQuantity() {
     await this.page.locator(this.remove).click();
   }
+  // end
 };
