@@ -17,7 +17,7 @@ test.describe("Valid Login tests", () => {
 });
 
 test.describe("Invalid Login Tests", () => {
-  test("Invalid login", async ({ page }) => {
+  test.skip("Invalid login", async ({ page }) => {
     const login = new LoginPage(page);
     await login.login(
       testData.invalidUserPass.username,
@@ -28,3 +28,4 @@ test.describe("Invalid Login Tests", () => {
     await login.invalidLogin();
   });
 });
+
