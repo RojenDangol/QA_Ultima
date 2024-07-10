@@ -12,8 +12,7 @@ exports.DashboardPage = class DashboardPage {
     this.basket = '//*[@id="popup-fly-cart"]/div/div[1]/div[1]/div[1]/h3';
     this.increase =
       '//*[@id="woo-single-info"]/div/div[2]/div/div/form/div[2]/div[2]/div/div/div/button[2]';
-    this.remove =
-      '//*[@id="popup-fly-cart"]/div/div[1]/div[1]/div[2]/div[1]/div[2]/ul/li/div[2]/div[2]/a';
+    this.remove = '//a[contains(text(),"Remove")]';
   }
 
   async addToCart(message) {
