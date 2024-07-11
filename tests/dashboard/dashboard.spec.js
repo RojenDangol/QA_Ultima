@@ -11,9 +11,14 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.describe("Dashboard CRUD", () => {
-  test("Add to cart", async ({ page }) => {
+  test("AddToCart CRUD", async ({ page }) => {
     const dashboard = new DashboardPage(page);
     await dashboard.addToCart("Shopping Basket");
     await dashboard.removeQuantity();
+  });
+
+  test("Multiple Add", async ({ page }) => {
+    const multipleAdd = new DashboardPage(page);
+    await multipleAdd.addMultipleItem();
   });
 });
