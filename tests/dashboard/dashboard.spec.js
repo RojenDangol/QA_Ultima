@@ -22,3 +22,10 @@ test.describe("Dashboard CRUD", () => {
     await multipleAdd.addMultipleItem();
   });
 });
+
+test.describe("Search Operation", () => {
+  test("Search Items", async ({ page }) => {
+    const search = new DashboardPage(page);
+    await search.searchOperation("Atom 720");
+  });
+});
