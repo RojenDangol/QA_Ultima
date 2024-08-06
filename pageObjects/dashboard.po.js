@@ -21,6 +21,9 @@ exports.DashboardPage = class DashboardPage {
     this.searchItem =
       '//*[@id="popup-search"]/div/div[1]/div[2]/div[2]/div/form/input';
     this.searchResult = '(//div[contains(@class, "product-info")])[1]/h3';
+    this.logoutDirect = '//*[@id="page-header-inner"]/div/div/div[3]/div/a[1]';
+    this.logout = '//*[@id="post-14"]/div/div/div[1]/div/nav/ul/li[8]/a';
+    this.logoutMsg = '//*[@id="customer_login"]/div[1]/div/h2';
   }
 
   async addToCart(message) {
@@ -38,6 +41,7 @@ exports.DashboardPage = class DashboardPage {
     await expect(this.page.locator(this.emptyCart)).toHaveText(
       "Your basket is currently empty"
     );
+    await this.page.locator(this.crossButton).click();
   }
 
   async addMultipleItem() {
@@ -65,6 +69,7 @@ exports.DashboardPage = class DashboardPage {
     } else {
       console.log("Test Failed!");
     }
+    await this.page.locator(this.crossButton).click();
   }
 
   async searchOperation(item) {
@@ -84,5 +89,11 @@ exports.DashboardPage = class DashboardPage {
     } else {
       console("Error!");
     }
+  }
+
+  async logoutOperation() {
+    await this.page.locator(this.logoutDirect).click();
+    await this.page.locator(this.logout).click();
+    await expect(this.page.locator(this.logoutMsg)).toHaveText("Sign In");
   }
 };

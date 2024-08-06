@@ -10,7 +10,13 @@ test.beforeEach(async ({ page }) => {
   await login.verifyValidLogin();
 });
 
+test.afterEach(async ({ page }) => {
+  const logout = new DashboardPage(page);
+  await logout.logoutOperation();
+});
+
 test.describe("Dashboard CRUD", () => {
+  test.describe.configure({ mode: "serial" });
   test("AddToCart CRUD", async ({ page }) => {
     const dashboard = new DashboardPage(page);
     await dashboard.addToCart("Shopping Basket");
@@ -21,11 +27,16 @@ test.describe("Dashboard CRUD", () => {
     const multipleAdd = new DashboardPage(page);
     await multipleAdd.addMultipleItem();
   });
-});
 
-test.describe("Search Operation", () => {
   test("Search Items", async ({ page }) => {
     const search = new DashboardPage(page);
     await search.searchOperation("Atom 720");
   });
 });
+
+// test.describe("Search Operation", () => {
+//   test("Search Items", async ({ page }) => {
+//     const search = new DashboardPage(page);
+//     await search.searchOperation("Atom 720");
+//   });
+// });
