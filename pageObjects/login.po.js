@@ -9,7 +9,7 @@ exports.LoginPage = class LoginPage {
     this.passwordInput = '//*[@id="password"]';
     this.loginButton = '//*[@id="customer_login"]/div[1]/div/form/button';
     this.validLoginValidation = '//*[@id="post-14"]/div/div/div[1]/div/div/h6';
-    this.errorMessage = '//*[@id="error"]';
+    this.errorMessage = '//*[@id="post-14"]/div/div[1]/ul/li';
     // this.successMessage = "";
   }
 

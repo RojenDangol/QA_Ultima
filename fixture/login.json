@@ -3,8 +3,12 @@
     "username": "rojendangol1@gmail.com",
     "password": "tishamaharjan"
   },
-  "invalidUserPass": {
-    "username": "rojendangol@gmail.com",
-    "password": "Password1234"
+  "invalidUser": {
+    "username": "rojendangol1@gmail.com",
+    "password": "tishamaharjan",
+    "invalidUsername": "rojendangol@gmail.com",
+    "invalidPassword": "Password12",
+    "emptyUsername": "",
+    "emptyPassword": ""
   }
 }
