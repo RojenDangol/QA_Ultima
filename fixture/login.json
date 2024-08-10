@@ -1,11 +1,11 @@
 {
   "validUser": {
     "username": "rojendangol1@gmail.com",
-    "password": "tishamaharjan"
+    "password": "ultimalifestyle"
   },
   "invalidUser": {
     "username": "rojendangol1@gmail.com",
-    "password": "tishamaharjan",
+    "password": "ultimalifestyle",
     "invalidUsername": "rojendangol@gmail.com",
     "invalidPassword": "Password12",
     "emptyUsername": "",

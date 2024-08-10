@@ -51,8 +51,8 @@ test.describe("Invalid Login Tests", () => {
   test("Invalid username valid password", async ({ page }) => {
     const login = new LoginPage(page);
     await login.login(
-      testData.invalidUser.username,
-      testData.invalidUser.invalidPassword
+      testData.invalidUser.invalidUsername,
+      testData.invalidUser.password
     );
     // await page.waitForTimeout(2000);
 
@@ -74,7 +74,19 @@ test.describe("Invalid Login Tests", () => {
     await page.waitForTimeout(1000);
   });
 
-  test("Empty password", async ({ page }) => {
+  test("Empty username and valid password", async ({ page }) => {
+    const login = new LoginPage(page);
+    await login.login(
+      testData.invalidUser.emptyUsername,
+      testData.invalidUser.password
+    );
+    // await page.waitForTimeout(2000);
+
+    await login.invalidLogin("Error: Username is required.");
+    await page.waitForTimeout(1000);
+  });
+
+  test("Valid username and empty password", async ({ page }) => {
     const login = new LoginPage(page);
     await login.login(
       testData.invalidUser.username,
@@ -83,6 +95,30 @@ test.describe("Invalid Login Tests", () => {
     // await page.waitForTimeout(2000);
 
     await login.invalidLogin("Error: The password field is empty.");
+    await page.waitForTimeout(1000);
+  });
+
+  test("Invalid username and empty password", async ({ page }) => {
+    const login = new LoginPage(page);
+    await login.login(
+      testData.invalidUser.invalidUsername,
+      testData.invalidUser.emptyPassword
+    );
+    // await page.waitForTimeout(2000);
+
+    await login.invalidLogin("Error: The password field is empty.");
+    await page.waitForTimeout(1000);
+  });
+
+  test("Empty username and invalid password", async ({ page }) => {
+    const login = new LoginPage(page);
+    await login.login(
+      testData.invalidUser.emptyUsername,
+      testData.invalidUser.invalidPassword
+    );
+    // await page.waitForTimeout(2000);
+
+    await login.invalidLogin("Error: Username is required.");
     await page.waitForTimeout(1000);
   });
 });
